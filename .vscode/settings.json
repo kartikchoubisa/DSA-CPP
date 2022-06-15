@@ -1,0 +1,14 @@
+{
+    "C_Cpp.errorSquiggles": "Enabled",
+    "files.associations": {
+        "*.cpp": "cpp",
+        "vector": "cpp",
+        "iostream": "cpp",
+        "algorithm": "cpp",
+        "numeric": "cpp",
+        "ostream": "cpp",
+        "xiosbase": "cpp",
+        "xmemory": "cpp",
+        "utility": "cpp"
+    }
+}

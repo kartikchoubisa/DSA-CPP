@@ -1,0 +1,1 @@
+{"name":"Local: binarytree","url":"e:\\kartik\\hackerman2\\C\\binarytree.cpp","tests":[{"id":1647000341978,"input":"8 10 1 -1 -1 6 9 -1 -1 7 -1 -1 3 -1 14 13 -1 -1 -1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\kartik\\hackerman2\\C\\binarytree.cpp","group":"local","local":true}
