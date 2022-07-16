@@ -10,6 +10,8 @@
         "xiosbase": "cpp",
         "xmemory": "cpp",
         "utility": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "unordered_map": "cpp",
+        "xstring": "cpp"
     }
 }
