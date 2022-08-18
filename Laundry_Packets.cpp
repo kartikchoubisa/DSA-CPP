@@ -1,44 +1,19 @@
+#include <iostream>
+#include <vector>
 using namespace std;
-void insert(stack<int>&s,int e)
-{
-    if(s.size()==0)
-    {
-        s.push(e);
-        return;
-    }
-    int temp=s.top();
-    s.pop();
-    insert(s,e);
-    s.push(temp);
-}
-void rever(stack<int>&s)
-{
-    if(s.size()==0)
-    {
-        return;
-    }
-    int temp=s.top();
-    s.pop();
-    rever(s);
-    insert(s,temp);
-}
-int main()
-{
-    int n;
-    cin>>n;
-    stack<int>st;
-    for(int i=0;i<n;i++)
-    {
 
-        int a;
-        cin>>a;
-        st.push(a);
+int fib(int n){
+    vector<int> dp(100, 0);
+    dp[1] = 1;
+
+    for (int i = 2; i <= n; i++){
+        dp[i] = dp[i-1] + dp[i-2];
     }
-    rever(st);
-    while(!st.empty())
-    {
-        cout<<st.top()<<endl;
-        st.pop();
-    }
-    return 0;
+    return dp[n];
+}
+
+
+int main()
+{   
+    cout << fib(7);
 }
