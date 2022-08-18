@@ -1,5 +1,5 @@
+import heapq
 from itertools import accumulate
-
 def solve():
     A = [int(x) for x in input().split()]
     if sum(A) % len(A) != 0:

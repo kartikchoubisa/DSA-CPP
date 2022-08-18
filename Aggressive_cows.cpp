@@ -1,57 +1,46 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <queue>
+
 using namespace std;
 
-bool ispossible(int s, vector<int> stalls, int c){
-    //is it possible to have separation of s between each cow in stalls
-    int prev = stalls[0];
-    c--;
-    for (int i = 1; i < stalls.size(); i++){
-        if (stalls[i] - prev >= s){
-            c--;
-            prev = stalls[i];
-            if (c == 0){
-                return true;
-            }
-        }
+
+class Node{
+    public:
+        int val;
+        Node* left = NULL;
+        Node* right = NULL;
+
+    Node(int val){
+        this->val = val;
     }
-    return false; 
+};
+
+Node* build(vector<int>& v){
+    int val = v.back();
+    v.pop_back();
+
+    //basecase
+    if (val == -1){
+        return NULL;
+    }
+
+    //rec
+    Node* x = new Node(val);
+    x->left = build(v);
+    x->right = build(v);
+    return x;
 }
 
+
+
 int main(){
+    vector<int> v{1, 2, -1, 4, 5, -1, -1, 6, -1, -1, 3, -1, -1};
+    reverse(v.begin(), v.end());
+    Node* root = build(v);
     
-    int t;
-    cin >> t;
-
-    while (t--){
-        int N, C;
-        cin >> N >> C;
-        vector<int> stalls(N);
-        for (int i=0; i < N; i++){
-            cin >> stalls[i];
-        }
-        
-        sort(stalls.begin(), stalls.end());
-        int s = 0;
-        int e = 1000000000;
-        int mid = s + (e-s)/2;
-        int curr_ans;
-
-        curr_ans = ispossible(10,stalls,C);
-
-        while (s <= e) {
-            mid = s + (e-s)/2;
-            if (ispossible(mid, stalls, C)){
-                curr_ans = mid;
-                s = mid + 1;
-            } else {
-                e = mid - 1;
-            }
-
-        }
-        cout << curr_ans << endl;
-    }
+    queue<int> q;
 
     return 0;
 }
